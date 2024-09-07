@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Resume</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Slide-down animation */
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animation for sections when toggled */
+        .section.animate {
+            animation: slideDown 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>laila ali Resume</h1>
+
+        <div class="section">
+            <h2>Personal Information</h2>
+            <p>Name: laila ali</p>
+            <p>Email: lailaali@gmail.com</p>
+            <p>Phone: 090078601</p>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <p>BA - VIRTUAL University</p>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            <button class="btn" onclick="toggleSection('skills')">Toggle Skills</button>
+            <div id="skills" class="hidden">
+                <p>JavaScript, TypeScript, HTML, CSS</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Work Experience</h2>
+            <p>Software Developer at XYZ Corp</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                section.classList.add('animate');
+            } else {
+                section.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
